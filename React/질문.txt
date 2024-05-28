@@ -1,0 +1,33 @@
+
+https://velog.io/@devsaza/cra
+
+1.create react app을 하는이유
+초기 환경을 일일히 설정하지 않고도 리액트 프로젝트를 시작할 수 있도록 셋업을 완료해놓은 틀이라고 보면 된다.
+
+Create React App (CRA)는 리액트 애플리케이션을 쉽게 생성하고 구성할 수 있는 공식적인 도구입니다. 
+CRA를 사용하면 개발 환경 설정과 빌드 프로세스를 자동으로 처리하여 개발자가 더욱 효율적으로 리액트 앱을 시작할 수 있습니다.
+
+React 앱을 만들 때는 React 라이브러리 뿐 아니라 Webpack, Babel 등의 라이브러리들이 필요하다.
+
+Webpack은 리액트 프로젝트에서 사용되는 여러 개의 자바스크립트 파일을 하나로 합쳐주는 모듈 번들러이며, Babel은 프로젝트에서 JSX 문법을 사용할 수 있게 해준다. 이외에도 다양한 라이브러리를 사용하는데, 이런 부수적인 모듈을 개발자가 일일히 다운받기는 번거로운 일이다.
+
+이렇게 패키지 등 번거로운 react 초기 셋팅 작업을 미리 하고, 그 환경을 다시 패키징한 것이 바로 create-react-app이며, 축약해 CRA이라고도 부른다.
+
+
+경로 맞추기 react -> todomaster 
+
+리액트 프로젝트를 생성해야한다 -> 항상 CRA(create react app)으로 들어가서 -> get start에 quick start를 통해 시작 명령어를 가져와야한다
+                                                                 (명령어가 항상 바뀌기 떄문에)
+                          npx create-react-app my-app -> my-app은 내가 설정하는이름
+
+이렇게 하면 todomaster 안에 todolist가 생성된다
+
+workspace가 어디?
+src에 App.js 
+
+root를 설정하기 위해
+react routerDom을 배울것이다.
+
+react routerDom Adding a router에서 가져온 --> import {createBrowserRouter,RouterProvider,} from "react-router-dom";
+                                                    생성                , 감지
+

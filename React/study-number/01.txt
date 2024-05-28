@@ -1,0 +1,211 @@
+
+1. todoamster 폴더에 create reatct app todolist 를 사용해 react를 설치하였고
+설치가 완료됨에 todoamster폴더 안에 todolist폴더가 생성되었다
+
+2. todolis폴더에 react router dom 을 설치하기 위해 npm i react-router-dom 명령어를 사용 설치 완료후 
+package.json에서 설치가 완료되었는지 확인하였다
+확인후 
+
+3. import를 할것인데 왜하는지 적황히는 모르겠다(이유를 알았다 서술해보자)
+react routerDom Adding a router에서 가져온 --> import {createBrowserRouter,RouterProvider,} from "react-router-dom";
+//URL을 감비하여 내가 생성한 ROUTE 주소에 맞게 컴포넌트를 전달하는 역할을 한다
+// 감지, ROUTE 생성
+
+4. import export
+   한값을 다른 파일로가서 사용해보자
+   .1 app.js로 이동 초기에 app(){
+       return( 안에있는값은 필요없으니 지워주자)
+   }
+   이제 return 안에 RouterProvider 가 자동완성될것이다 RouterProvider가 어디서왔냐 하면 전에 작성한 router.js파일에서 맨처음 작성한 
+   import {createBrowserRouter,RouterProvider,} from "react-router-dom";
+                               여기있다.
+    자동완성으로 작성을 하게되면 위에 import { RouterProvider } from 'react-router-dom'; 이게 생긴다.
+    이렇게 생성한것이 컴포넌트라한다 <RouterProvider/> 더불어 컴포넌트는 태그형태로 만들어준다 .
+    그리고 router.js에서 export한 값을 내가 아무렇게나 정한 이름에 넣어서 가지고온다 import gwan from "./libs/routes/router"
+    나는 gwan이라는 이름으로 가지고와 import해주었다 * 상대경로를 잘 맞추자 
+    그후 생성한 컴포넌트 <RouterProvider router={}/>의 중괄호에 내가 export해서 import하며 지어준 이름 gwan을 넣어주면 된다.
+    그후에 내가 생성한 컴포넌트의 상위 폴더 todolist에 경로를 맞춰준후 npm start를 하게되면?실행된다
+    실행하고 보니 no-unused-vars라고 경고가 뜨네??
+    이건 뭘까 react내에서 "너 사용하지 않는거 왜 import했어??" 우리의 메모리를 아껴주기 위해 경고를 보낸것이다
+    굳이 해결하자면 app.js의 import logo from './logo.svg';가 약간 칙칙한걸 볼수있을것이다.
+    내가 사용중이지 않다는 뜻으로 해석할수있다.이걸 지워주면 사라지게 된다. 
+    그리고  'RouterProvider' is defined but never used  no-unused-vars 이 경고는 내가 정의중인데 사용하고있지 않다 주인!! 이런뜻이다
+    내가 어디에 정의를 해놨더라..? 처음에 작성한 router.js 파일에 
+    import {createBrowserRouter,RouterProvider,} from "react-router-dom";
+    이부분의 RouterProvider 여기를 지워보자 지우면 webpack compiled successfully 성공!
+    에러들을 잘 살펴보면 경로까지 알려준다!잘살펴봐보자
+
+    이제 컴포넌트를 만들어볼것이다.
+    pages파일 먼저 생성해보자 어디에?? src에~~ workspace는 src뿐입니다!
+    페이지 두개 만들것이다 main & todo 페이지!
+
+    그다음 main에 엔트리 파일 맨처음 보이는 파일을 만들어볼것이다
+    엔트리 파일 : 실제로 컴포넌트들이 조립되는 공간이며 가장 메인이 되는 큰 공간이다.
+
+    이제 컴포넌트를 만들어보자 
+    그러나 컴포넌트를 만드는방법도 두가지이다
+    화살표 함수와 일반함수
+    ** 컴포넌트 함수의 이름의 시작은 무조건 대문자이여야한다.그리고 이것도 export해서 다른곳에 써야한다 컴포넌트니까!! 그래서 밑에 export dafault main도 작성해주자
+
+    function Main(){
+
+    }
+    export default Main
+
+    Tip/ 컴포넌트르 만든다? 
+    일단  function Main(){
+
+        }
+        export default Main
+    이렇게 작성해보자
+
+    그리고 return을 할떄는 <div></div> 태그를 return안에 그냥 사용해도 된다!!
+    그리고 시험&Dom과 비교해보기 위해서 function Main() 안에 아무것도 반환하지않는 상수에 담은 익명 함수 const handler =()=>{} handler 함수를 만들어주고
+
+    function Main(){
+
+    const handler =()=>{}
+
+    return <div>{/*html 문법을 반환할수 있음 */}</div>
+    }
+    export default Main
+
+    return div앞에 위치한 태그에 onclick속성 부여와함께 방금 만든 샹수에 담은 함수 handler를 {} 안에 넣어주게 되면 이벤트가 적용된다.
+
+    function Main(){
+
+        const handler =()=>{}
+
+        return <div onclick={handler}>{/*html 문법을 반환할수 있음 */}</div>
+    }
+    export default Main
+
+    이걸 jsx문법이라 한다.
+    원래는 이jsx문법이 .jsx파일에서만 사용할수있었지만 이제는 그냥 일반 js에서도 사용된다
+    그럼 이제 jsx파일은 언제 쓰일까? 
+    컴포넌트를 나타낼때쓴다 (컴포넌트 js와 일반 js함수는 다르다)
+                      왜냐면 컴포넌트 js는 반드시 html을 return 해야한다. 
+
+    const todo페이지에도 컴포넌트 만들어보자
+
+    export const Todo = () => {
+    return <div>투두 페이지입니다.</div>
+    }
+   이걸 이제 routers에 가서 import해주면 쉽게 쓸수있다!!
+
+   이제 완성되었으니 routes에 router로 가서 자동완성되는지 확인해보자
+
+
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <Main/>
+        },
+        {
+            path:"/todo",
+            element:<div>투두페이지입니다.</div>
+        }
+    ])
+
+    export default router
+
+    router.js 파일에 const router  createBrowserRouter() 컴포넌트에 element 요소에 자동완성시켜보자
+    Main,Todo 모두 잘 export되었다면
+    위에 import되었다고 나온다.
+    import Main from "../../pages/main/main";      ------> export default ---> 요거느  import Main 여기 이름 마음대로 바꿔도 된다.
+    import { Todo } from "../../pages/todo/todo";  ------> 앞에 export
+
+
+    ----------------------------------------------------------------------------------
+
+    이제 넘어와서 todolist파일에 todolist.txt파일을 만들어주었다.
+
+    저번시간 react-router-dom을 사용하여 주소를 감지하고 주소에 맞는 컴포넌트를 보여주었다.
+
+    
+
+
+
+
+
+        
+    
+
+
+
+
+
+
+
+
+
+- React-Router-Dom
+  React로 생성된 SPA 내부에서 페이지 이동이 가능하도록 만들어주는 라이브러리!!
+
+  
+
+  내가 예상해보길 const router = createBrowserRouter() 은 컴포넌트를 생성해준거다
+  router를 상수에 담은 이유는 뭘까 재사용을 하려나?
+
+   const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <div>메인페이지입니다.</div>
+    },
+    {
+        path:"/todo",
+        element:<div>투두페이지입니다.</div>
+    }
+])
+ path: "/",아무런것도 없을떄 div메인 페이지 입니다!를 보여줍니다
+ path:"/todo" 일때에는 투두페이지입니다를 보여줄것이다.
+ 음..그다음 
+ element에 컴포넌트를 넣어주면 된다고 하는데 element: <div>메인페이지입니다.</div> 에 메인페이지 컴포넌트를 넣으면 된다고한다
+ 어떻게 넣을까?
+
+
+ 내가 지금 하고자 하는 것은 위의 const router에 담겨진 createBrowserRouter()를 export시켜서 app.js에서 사용할것이다
+ 방법은 두가지가 있다 1. export -> export default
+                 2. export const router = ...
+
+ // 첫번째 방법 내가 내보내고 싶은것(router)의 이름을 export default router 그대로 작성하면된다
+ // 두번쨔 방법은 export const router = createBrowserRouter
+               import {router} from "상대경로"
+               내가 export한 변수나 함수명을 정확히 기재해야한다
+               지금 예시처럼 앞에 export를 붙이게 되면 내가 export한 변수나 함수명을 정확히 기재해야합니다.
+
+ 다시 정리해보자 import와 export하는 이유부터 정확히 알아야한다 
+ - 지금 router.js뿐만 아니라 다른 app.js에서도 사용하고싶다! import export를 해야한다.
+   그렇기 때문에 내보내야 하는데 내보낼수있는 방법이 두가지가 있는것이다.
+
+   1. 하나는 위 작성된 컴포넌트 인 const router = createBrowserRouter() 앞에 export를 붙이는것 export const router = createBrowserRouter() 
+      이렇게 export한 값을 다른 파일에서 쓰려면 import {router} from "(상대경로)./routes/router" 를 해주면 된다.
+
+   2. 두번쨰는 밑에 export default 를 쓰고 내가 내보내고 싶은 컴포넌트의 이름을 명시하는것이다
+      default라는 기본값으로 내보냈기때문에 내가 굳이 선택하지않아도 된다 
+      export default router 
+
+      ex) import gwan from './routes/router'
+          import gwan 이라고 했지만 default(고정)값이 router이기떄문에 const router = createBrowserRouter() 가오게 된다
+
+    * 여러개를 export할때에는 앞에 export를 자주 쓴다
+
+    이제 사용해보자
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+

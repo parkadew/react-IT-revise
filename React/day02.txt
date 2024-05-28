@@ -1,0 +1,269 @@
+
+todo-list
+
+(CRUD)
+Create (생성)
+Read (조회)
+Update (갱신)
+Delete (삭제)
+
+1.todolist
+    css-in-js (*styled-components)
+    scss, tailwindcss, emotion, vanillaExtract, styleX
+    템플릿
+
+2.hookstodo
+    state, 관심사분리
+
+3. contextTodo
+    global state management
+    reducer
+
+4. reduxTodo
+     flux pattern, middle ware, msw
+
+5. fetchTodo
+    data fetch, auth, react-hook-form(RHF)
+
+6. node-js(express)
+   dbms, express, orm, todo-list
+
+7. react-query, recoil todo
+    gcTime, staleTime
+
+8. suspense,error-boundary
+    error handling
+
+--- react 끝
+
+경로 맞추기 react -> todomaster 
+
+리액트 프로젝트를 생성해야한다 -> 항상 CRA(create react app)으로 들어가서 -> get start에 quick start를 통해 시작 명령어를 가져와야한다
+                                                                 (명령어가 항상 바뀌기 떄문에)
+                          npx create-react-app my-app -> my-app은 내가 설정하는이름
+
+이렇게 하면 todomaster 안에 todolist가 생성된다
+
+workspace가 어디?
+src에 App.js 
+
+root를 설정하기 위해
+react routerDom을 배울것이다.
+
+---------------------------
+
+리액트의 폴더구조를 다시 한번 숙지하고 가자
+
+1.container/Presentational 폴더 구조
+2019(React16)년 이전에 많이 사용했던 폴더 구조
+함수형 컴포넌트가 나오기 이전에 사용
+지금은 창시자가 사용하지 말라고 언급한 폴더 구조이지만
+대기업들은 여전히 구버전을 사용하고있을 가능성이 높기 때문에 알고가자!
+
+board
+    container.js(logic) - 기능 
+    Presenter.js(View) - 화면
+
+React16이 발표되면서 hooks Funxtion등장 이후 사용하지 않는 패턴
+특수한 경우에는 사용하면 좋은 패턴
+
+2. Hooks폴더 구조
+    최근에 가장 많이 사용하는 폴더 구조이지만
+
+    components -> 모든 페이지에 공유 가능한 컴포넌트 (버튼)
+    hooks -> 상태 관련된 재사용되는 리액트 함수
+    pages -> 웹 내페이지
+        main
+            hooks -> 해당 페이지에서만 사용하는 리엑트 함수
+            components -> 해당 페이지에서만 사용되는 컴포넌트
+            index.js(main.js) -> 컴포넌트들이 조립되는 공간
+        todo
+        board
+        my-page
+
+    utils -> 유틸 함수(helper)
+    libs -> 라이브러리 관련된 함수나 폴더가 구성
+    app.js -> 다른 라이브러리를 사용하는 설정이나, 루트 설정
+
+    3.Atomic 폴더구조
+      이론 상으론 가장 완변한 패턴, 어떠한 컴포넌트든 재사용
+      atom(원자) 단위로 쪼개서 더이상 분리할 수 없게끔 컴포넌트를 분리
+       
+      atoms -> 더 이상 쪼갤 수 없는 컴포넌트
+      molecules -> 여러개의 atom이 모여 하나의 의미를 갖는 컴포넌트
+      organisms -> 여러개의 molecules이 모여서 하나의 기능을 갖는 컴포넌트
+      templetes -> 여러개의 organisms가 모여서 하나의 프레임을 갖춘 컴포넌트
+      pages -> 완성본
+
+      *폴더 구조에는 정답이 없지만 목적성에 맞게 나눌수있어야한다!
+
+    4. FSD(Feature, Sliced Design) 폴더 구조
+        신상, 현재 프론트엔드 개발자들이 hooks 폴더구조를 대체할 폴더구조로 유심히 보고 있는 구조 중 하나
+        프로젝트의 도메인 혹은 기능을 분배하여 폴더 구조를 작성
+
+----
+
+    이번day02,03애 todolist프로젝트를 완수하기 위해서 어떤 폴더구조를 사용할것인가!
+     
+     todolist 폴더 구조(hooks) - hooks 폴더 구조를 사용해 볼것이다.
+
+     src
+        components
+            (어디서든 재사용할수있는 기능?폴더구조가 들어가있는다)
+             Buttons.js
+
+        layouts
+            TDFooter.js
+            TDHeader.js
+            TDLayouts.js
+
+        pages
+            main
+                components
+                    Form.js
+                main.js(index.js)
+            todo
+                components
+                    AddModals.js
+                    OneTodo.js
+                    Todolist.js ---> 수업용
+                  todo.js(index.js)
+        libs
+            routes
+                router.js --> URL과 PAGES 매칭
+
+        styles
+            디자인시스템(디자인 토큰)
+            공용 스타일
+
+----
+
+react-router-Dom
+(내가 집중할곳 react-router-dom을 설치하고 사용하는 이유)
+
+react-router-dom 이란
+react는 SPA(Single Page Application)이다.
+react에 router를 사용할 수 있는 즉, 화면 전환을 지원하는 모듈이다.
+
+router : 네트워크에 데이터를 전송하는 매개체 (소포)
+현재 웹 사이트의 URL을 감지하여 어떠한 컴포넌트를 보여줄지 결정하는 도구
+
+npm i react router dom
+
+https://reactrouter.com/en/main
+
+todolist(내가 router를 사용할 공간)에 경로를 맞추어 설치해준다
+
+
+---
+
+이제 연결을 해보자
+ 폴더구조(hooks)를 내가 만들어보는것이다 
+
+         libs
+            routes
+                router.js --> URL과 PAGES 매칭
+
+
+root를 설정하기 위해
+react routerDom을 사용것이다.
+
+react routerDom Adding a router에서 가져온 --> import {createBrowserRouter,RouterProvider,} from "react-router-dom";
+                                                    생성                , 주소 감지하여 나한테 주소알려줌
+                                                    // URL을 감지하여 내가 생성한 ROUTE 주소에 맞게 컴포넌트를 전달하는 역할을 한다
+                                                    // 감지,생성
+router.js에 붙여넣어준다 왜지
+
+
+ 모듈 
+  한가지 이상의 기능을 하는 코드의 집단을 분리한 것
+  코드는 왜 분리했냐? 하나의 js파일 내부가 아니라 다른 js에서도 파일에서도 사용할 수 있도록 
+
+
+   const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <div>메인페이지입니다.</div>
+    },
+    {
+        path:"/todo",
+        element:<div>투두페이지입니다.</div>
+    }
+])
+
+ path: "/",아무런것도 없을떄 div메인 페이지 입니다!를 보여줍니다
+ path:"/todo" 일때에는 투두페이지입니다를 보여줄것이다.
+ 음..그다음 
+ element에 컴포넌트를 넣어주면 된다고 하는데 element: <div>메인페이지입니다.</div> 에 메인페이지 컴포넌트를 넣으면 된다고한다
+ 어떻게 넣을까?
+
+
+ 내가 지금 하고자 하는 것은 위의 const router에 담겨진 createBrowserRouter()를 export시켜서 app.js에서 사용할것이다
+ 방법은 두가지가 있다 1. export -> export default
+                 2. export const router = ...
+
+ // 첫번째 방법 내가 내보내고 싶은것(router)의 이름을 export default router 그대로 작성하면된다
+ // 두번쨔 방법은 export const router = createBrowserRouter
+               import {router} from "상대경로"
+               내가 export한 변수나 함수명을 정확히 기재해야한다
+               지금 예시처럼 앞에 export를 붙이게 되면 내가 export한 변수나 함수명을 정확히 기재해야합니다.
+
+ 다시 정리해보자 import와 export하는 이유부터 정확히 알아야한다 
+ - 지금 router.js뿐만 아니라 다른 app.js에서도 사용하고싶다! import export를 해야한다.
+   그렇기 때문에 내보내야 하는데 내보낼수있는 방법이 두가지가 있는것이다.
+
+   1. 하나는 위 작성된 컴포넌트 인 const router = createBrowserRouter() 앞에 export를 붙이는것 export const router = createBrowserRouter() 
+      이렇게 export한 값을 다른 파일에서 쓰려면 import {router} from "(상대경로)./routes/router" 를 해주면 된다.
+
+   2. 두번쨰는 밑에 export default 를 쓰고 내가 내보내고 싶은 컴포넌트의 이름을 명시하는것이다
+      default라는 기본값으로 내보냈기때문에 내가 굳이 선택하지않아도 된다 
+      export default router 
+
+      ex) import gwan from './routes/router'
+          import gwan 이라고 했지만 default(고정)값이 router이기떄문에 const router = createBrowserRouter() 가오게 된다
+
+    * 여러개를 export할때에는 앞에 export를 자주 쓴다
+
+-------------------------------------------------------------------------
+
+    ex)
+    옷 쇼핑몰 웹사이트에 접속 -> 물품 상세보기를 클릭
+    
+    메인 페이지 -> 상세보기 페이지
+
+    - 백엔드에 이달의 인기 상품 목록 요청 (메인페이지)
+    - 상품의 고유한 값을 전달하여 해당 상품의 상세한 정보 요청 (상세페이지) - 상품의 고유한 값??
+
+    -react router Dom에는 주소에 전달된 데이터를 가지고올수있는 방법이있다 - url prameter(매개변수)
+
+1. useSearchParams(query-string)
+   gwan.com/product?goods=23232412
+
+2. useParams (url-parameter)
+   gwan.com/product/ 3213242
+
+  path: /todo/:todoId
+  element: <TodoPage/>
+  todopage.js
+   >>> const { todoId } = useParams() // 3213242
+
+>>> 
+
+1. 데이터를 주소를 통해 전달할 수 있다.
+2. react-router-dom은 단순하게 URL은 맵핑해주는 역할만 하는 것이 아닌 주소를 다루는 다양한 함수를 지원하는
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
