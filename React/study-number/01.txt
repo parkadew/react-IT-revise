@@ -8,19 +8,19 @@ package.json에서 설치가 완료되었는지 확인하였다
 
 3. import를 할것인데 왜하는지 적황히는 모르겠다(이유를 알았다 서술해보자)
 react routerDom Adding a router에서 가져온 --> import {createBrowserRouter,RouterProvider,} from "react-router-dom";
-//URL을 감비하여 내가 생성한 ROUTE 주소에 맞게 컴포넌트를 전달하는 역할을 한다
+// URL을 감지하여 내가 생성한 ROUTE 주소에 맞게 컴포넌트를 전달하는 역할을 한다
 // 감지, ROUTE 생성
 
 4. import export
-   한값을 다른 파일로가서 사용해보자
+   한값을 다른 파일로 가서 사용해보자
    .1 app.js로 이동 초기에 app(){
        return( 안에있는값은 필요없으니 지워주자)
    }
-   이제 return 안에 RouterProvider 가 자동완성될것이다 RouterProvider가 어디서왔냐 하면 전에 작성한 router.js파일에서 맨처음 작성한 
+   이제 return 안에 Router Provider 가 자동 완성될것이다 RouterProvider가 어디서왔냐 하면 전에 작성한 router.js파일에서 맨처음 작성한 
    import {createBrowserRouter,RouterProvider,} from "react-router-dom";
                                여기있다.
     자동완성으로 작성을 하게되면 위에 import { RouterProvider } from 'react-router-dom'; 이게 생긴다.
-    이렇게 생성한것이 컴포넌트라한다 <RouterProvider/> 더불어 컴포넌트는 태그형태로 만들어준다 .
+    이렇게 생성한것이 컴포넌트라한다 <RouterProvider/> 더불어 컴포넌트는 태그형태로 만들어준다.
     그리고 router.js에서 export한 값을 내가 아무렇게나 정한 이름에 넣어서 가지고온다 import gwan from "./libs/routes/router"
     나는 gwan이라는 이름으로 가지고와 import해주었다 * 상대경로를 잘 맞추자 
     그후 생성한 컴포넌트 <RouterProvider router={}/>의 중괄호에 내가 export해서 import하며 지어준 이름 gwan을 넣어주면 된다.
@@ -121,20 +121,6 @@ react routerDom Adding a router에서 가져온 --> import {createBrowserRouter,
     이제 넘어와서 todolist파일에 todolist.txt파일을 만들어주었다.
 
     저번시간 react-router-dom을 사용하여 주소를 감지하고 주소에 맞는 컴포넌트를 보여주었다.
-
-    
-
-
-
-
-
-        
-    
-
-
-
-
-
 
 
 
