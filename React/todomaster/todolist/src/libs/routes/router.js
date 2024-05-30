@@ -9,7 +9,7 @@ const router = createBrowserRouter([
         element: <Main/>
     },
     {
-        path:"/todo",
+        path:"/todo/:todoId",
         element:<Todo/>
     }
 ])

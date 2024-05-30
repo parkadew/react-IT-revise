@@ -7,7 +7,6 @@ function App() {
   return (
     <RouterProvider router={gwan}/>
     //컴포넌트
-
   );
 }
 

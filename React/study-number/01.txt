@@ -1,4 +1,5 @@
 
+
 1. todoamster 폴더에 create reatct app todolist 를 사용해 react를 설치하였고
 설치가 완료됨에 todoamster폴더 안에 todolist폴더가 생성되었다
 
@@ -124,12 +125,10 @@ react routerDom Adding a router에서 가져온 --> import {createBrowserRouter,
 
 
 
-
 - React-Router-Dom
   React로 생성된 SPA 내부에서 페이지 이동이 가능하도록 만들어주는 라이브러리!!
 
   
-
   내가 예상해보길 const router = createBrowserRouter() 은 컴포넌트를 생성해준거다
   router를 상수에 담은 이유는 뭘까 재사용을 하려나?
 
@@ -161,7 +160,7 @@ react routerDom Adding a router에서 가져온 --> import {createBrowserRouter,
                지금 예시처럼 앞에 export를 붙이게 되면 내가 export한 변수나 함수명을 정확히 기재해야합니다.
 
  다시 정리해보자 import와 export하는 이유부터 정확히 알아야한다 
- - 지금 router.js뿐만 아니라 다른 app.js에서도 사용하고싶다! import export를 해야한다.
+ - 지금 router.js뿐만 아니라 다른 app.js에서도 사용 하고 싶다! import export를 해야한다.
    그렇기 때문에 내보내야 하는데 내보낼수있는 방법이 두가지가 있는것이다.
 
    1. 하나는 위 작성된 컴포넌트 인 const router = createBrowserRouter() 앞에 export를 붙이는것 export const router = createBrowserRouter() 
