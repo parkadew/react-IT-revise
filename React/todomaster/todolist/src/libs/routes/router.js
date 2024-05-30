@@ -1,6 +1,6 @@
 import {createBrowserRouter} from "react-router-dom";
 import Main from "../../pages/main/main";
-import { Todo } from "../../pages/todo/todo";
+import { Todo } from "../../pages/todo/_todo";
 // import한다! nodelist안에 react-router-dom을 가지고 온것이다.
 
 const router = createBrowserRouter([
