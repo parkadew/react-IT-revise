@@ -1,22 +1,47 @@
 import styled from "styled-components"
+import FormInput from "../../../components/Forminput"
+import TDButton from "../../../components/Button"
+// import { useNavigate } from "react-router-dom"
 
 const SignInForm = () =>{
     
-    return <S.Form >
-        <S.InputBox>
-            <S.InputLabel>
-                이메일
-            </S.InputLabel>
-            <S.Input placeholder={"email"}/>
-        </S.InputBox>
-        <S.InputBox>
-            <S.InputLabel>
-                비밀번호
-            </S.InputLabel>
-            <S.Input placeholder={"password"}/>
-        </S.InputBox>
-    </S.Form>
-} 
+
+    const FORM_ARRAY = [
+        {
+            label: "이메일",
+            placeholder: "email",
+        },
+        {
+            label: "비밀번호",
+            placeholder: "email",
+        },
+    ]
+    return <S.Form>
+            {FORM_ARRAY.map((Form, index)=><FormInput
+            key={index}
+            label={Form.label}
+            size={2}
+            placeholder ={Form.placeholder}
+            >
+            </FormInput>)}
+            <TDButton variant={"secondary"} size={'mediun'} bt = {"/todo/4"}>
+           로그인
+           </TDButton>
+            </S.Form>
+    
+    // return <S.Form >
+    //       <FormInput label={"이메일"} placeholder={"email"}size={2}/>
+    //       <FormInput label={"비밀번호"} placeholder={"passeword"}size={1} containerStyle={{
+    //         width : 300
+    //       }}/>
+    //       <TDButton variant={"secondary"} size={'mediun'}>
+    //       로그인
+    //       </TDButton>
+    //         </S.Form >
+  
+    }
+
+    
 export default SignInForm
 
 const Form = styled.form`

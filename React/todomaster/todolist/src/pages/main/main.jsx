@@ -20,7 +20,7 @@ import SignUpForm from './_components/sign-up-form'
 const Main = () => {
     //컴포넌트 -> 레이아웃, 회원가입 폼, 로그인 폼, 인풋, 버튼
     // 만약에 컴포넌트 나누는게 익숙하지 않다면 -> 한번에 작성했다가 이후에 나눠도 ok
-    let formState = "SIGN-IN"
+    let formState = "SIGN-UP"
 
     const TAB_ARRAY = [
         {
