@@ -2,10 +2,15 @@
 import './App.css';
 import { RouterProvider } from 'react-router-dom';
 import gwan from "./libs/routes/router"
+import { ThemeProvider } from 'styled-components';
+import { theme }from './libs/styles/theme';
 
 function App() {
   return (
+    <ThemeProvider theme={theme}>
+                 {/*key = {value} */} 
     <RouterProvider router={gwan}/>
+    </ThemeProvider>
     //컴포넌트
   );
 }

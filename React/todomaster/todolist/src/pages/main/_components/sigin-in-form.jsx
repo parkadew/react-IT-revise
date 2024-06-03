@@ -1,10 +1,11 @@
 import styled from "styled-components"
 import FormInput from "../../../components/Forminput"
 import TDButton from "../../../components/Button"
+import { Form } from "./style"
 // import { useNavigate } from "react-router-dom"
 
 const SignInForm = () =>{
-    
+
 
     const FORM_ARRAY = [
         {
@@ -44,14 +45,7 @@ const SignInForm = () =>{
     
 export default SignInForm
 
-const Form = styled.form`
-    background-color: aliceblue;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 32px;
-`
+
 
 const InputBox = styled.div`
     display: flex;
