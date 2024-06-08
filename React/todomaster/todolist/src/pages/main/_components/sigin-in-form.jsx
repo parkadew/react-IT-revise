@@ -4,7 +4,7 @@ import TDButton from "../../../components/Button"
 import { Form } from "./style"
 // import { useNavigate } from "react-router-dom"
 
-const SignInForm = () =>{
+const SignInForm = () => {
 
 
     const FORM_ARRAY = [
@@ -18,18 +18,21 @@ const SignInForm = () =>{
         },
     ]
     return <S.Form>
-            {FORM_ARRAY.map((Form, index)=><FormInput
+        {FORM_ARRAY.map((Form, index) => <FormInput
             key={index}
             label={Form.label}
             size={2}
-            placeholder ={Form.placeholder}
-            >
-            </FormInput>)}
-            <TDButton variant={"secondary"} size={'mediun'} bt = {"/todo/4"}>
-           로그인
-           </TDButton>
-            </S.Form>
-    
+            placeholder={Form.placeholder}
+        >
+        </FormInput>)}
+        <TDButton variant={"secondary"} size={'mediun'} bt={"/todo/4"}>
+            로그인
+        </TDButton>
+    </S.Form>
+
+
+
+
     // return <S.Form >
     //       <FormInput label={"이메일"} placeholder={"email"}size={2}/>
     //       <FormInput label={"비밀번호"} placeholder={"passeword"}size={1} containerStyle={{
@@ -39,10 +42,10 @@ const SignInForm = () =>{
     //       로그인
     //       </TDButton>
     //         </S.Form >
-  
-    }
 
-    
+}
+
+
 export default SignInForm
 
 
