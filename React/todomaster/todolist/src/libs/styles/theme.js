@@ -9,9 +9,9 @@
 
 const COLORS = {
     primary: '#007AE',
-    text:{
-        black : '#111',
-        white : '#fff'
+    text: {
+        black: '#111',
+        white: '#fff'
     },
     Gray: {
         1: "#e9e9e9",
@@ -30,7 +30,7 @@ const FONT_SiZE = {
 // theme으로 객체화 시켜서 export하는것은 styled  -components의
 // theme provider를 사용하면 매번 import하지않아도 값이 자동으로 전달
 
-const theme = {
+export const theme = {
     colors: COLORS,
     fontSize: FONT_SiZE
 }

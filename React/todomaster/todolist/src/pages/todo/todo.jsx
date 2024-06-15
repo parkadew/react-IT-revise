@@ -4,46 +4,45 @@ import { flexCenter } from "../../libs/styles/common";
 import TDButton from "../../components/Button";
 
 const Todo = () => {
-    
-    const todos = [
-        {
-          id: 1,
-          title: "example-1",
-          content: "example-1",
-          state: true
-        },
-        {
-          id: 2,
-          title: "example-2",
-          content: "example-2",
-          state: false
-        }
-      ] 
+  const todos = [
+    {
+      id: 1,
+      title: "example-1",
+      content: "example-1",
+      state: true
+    },
+    {
+      id: 2,
+      title: "example-2",
+      content: "example-2",
+      state: false
+    }
+  ]
 
-    // isOpenAddTodoModal 변수가 하는 역할은 무엇일까
-    // isOpenAddTodoModal이 true일 떄에만 addModl을 보여주기 위함
-    let isOpenAddTodoModal = false;
-    // todos는 todoList 컴포넌트가 아니라 상위인 todo에있어야하는이유 
-    // todos는 todo data로 이루어진 배열
+  // isOpenAddTodoModal 변수가 하는 역할은 무엇일까
+  // isOpenAddTodoModal이 true일 떄에만 addModl을 보여주기 위함
+  let isOpenAddTodoModal = false;
+  // todos는 todoList 컴포넌트가 아니라 상위인 todo에있어야하는이유 
+  // todos는 todo data로 이루어진 배열
 
-    //props를 전달은 상위에서 하위만 가능
-    // todos는 tod 목록을 보여주는 todolist 컴포넌트에도 필요하지만
-    // todo를 추가하는 addTodoModal에도 필요하기 떄문에 부모인 Todo 컴포넌트가 갖고있어야함
+  //props를 전달은 상위에서 하위만 가능
+  // todos는 tod 목록을 보여주는 todolist 컴포넌트에도 필요하지만
+  // todo를 추가하는 addTodoModal에도 필요하기 떄문에 부모인 Todo 컴포넌트가 갖고있어야함
 
-    // 이것이 과연 좋을까?
-    // 하위 컴포넌트에게 전달을 하기 위해서 상위 컴포넌트가 값을 알아야한다?
-    // todo (상태) --> 전역으로 만드는것이 불가능 --> 전역상태
+  // 이것이 과연 좋을까?
+  // 하위 컴포넌트에게 전달을 하기 위해서 상위 컴포넌트가 값을 알아야한다?
+  // todo (상태) --> 전역으로 만드는것이 불가능 --> 전역상태
 
-    return     <>
-    {isOpenAddTodoModal && <AddTodoModal todos={todos}/>}
+  return <>
+    {isOpenAddTodoModal && <AddTodoModal todos={todos} />}
     <S.Wrapper>
-        <S.Container>
-            <S.Title>TODOLIST</S.Title>
-            <TodoList todos={todos}/>
-            <TDButton size={'full'} variant={'primary'}>
-              추가
-            </TDButton>
-        </S.Container>
+      <S.Container>
+        <S.Title>TODOLIST</S.Title>
+        <TodoList todos={todos} />
+        <TDButton size={'full'} variant={'primary'}>
+          추가
+        </TDButton>
+      </S.Container>
     </S.Wrapper>
   </>
 }

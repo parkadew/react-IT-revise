@@ -2,15 +2,15 @@
 import styled, { css } from "styled-components"
 import React from "react"
 
-const FormInput = ({label,size, containerStyle, ...props}) => {
+
+const FormInput = ({ label, size, containerStyle, ...props }) => {
     console.log(size)
     return <S.InputBox style={containerStyle}>
         <S.InputLabel>{label} </S.InputLabel>
-        <S.Input size={size}{...props}/>
-       {/*나머지 매개변수 전달을 통한 input의 속성값 전달 */}  
+        <S.Input size={size}{...props} />
+        {/*나머지 매개변수 전달을 통한 input의 속성값 전달 */}
     </S.InputBox>
 }
-
 export default FormInput
 
 const sizeCSS = {
@@ -22,7 +22,7 @@ const sizeCSS = {
     width: 300px;
     height: 48px;
     `,
-    3:css`
+    3: css`
     width: 100%;
     height: 48px;
     `
